@@ -112,7 +112,10 @@ class CartComponent extends Component {
                             >
                                 <div className='d-flex w-100 justify-content-between'>
                                     <h5 className='mb-1'>{item.name}</h5>
-                                    <h6 className='mb-1'>
+                                    <h6
+                                        className='mb-1'
+                                        style={{ marginLeft: 30 }}
+                                    >
                                         Price: ${item.price}
                                     </h6>
                                 </div>
