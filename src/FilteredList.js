@@ -15,7 +15,7 @@ class FilteredList extends Component {
             colorgroup: 'Select Color Group',
             priceRange: 'Select Price Range',
             sorted: 'Sort By',
-            cart: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            cart: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             totalSpending: 0,
         };
     }
@@ -100,7 +100,6 @@ class FilteredList extends Component {
                 this.state.totalSpending -
                 this.props.list[index].price * this.state.cart[index];
             this.state.cart[index] = 0;
-            console.log(this.props.list[index].price * this.state.cart[index]);
         }
         if (operations === 'add') {
             this.state.cart[index] = this.state.cart[index] + 1;
