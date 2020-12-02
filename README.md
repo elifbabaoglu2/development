@@ -2,69 +2,30 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
 ## Available Scripts
 
 In the project directory, you can run:
 
 ### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
 ### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
 ### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Development 
+The organization of the react application is simple. We have an App.js component which takes in FilteredList component (FilteredList.js) and FilteredList takes in DisplayList Component (DisplayList.js).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+App.js is our main component, we pass in FilteredList component and we declare our list here and pass in the list we create in App.js to the FilteredList component. This main component renders the web application.  Filtered.js file has two components inside one of them is the filteredList component and the other one is the headerBar component. FilteredList component includes the filtering and sorting functions. When we click a button on the main page, depending on which filtering or sorting option we clicked on the header, one of these functions inside FiltereList component gets fired. HeaderBar component is essentialy a NavBar from BootStrap and this component displays all the options for filtering and sorting. FilteredList.js file also takes in DisplayList component so that we can display the products and that the headerbar and the filteredlist components can interact with the products with the following properties(price, popularity, name, img etc..). DisplayList.js file has three components inside. One of them is DisplayList component and the other one is CartComponent, display list component displays and organizes the products and CardComponent organizes one product display. The last component is the checkout button which is responsible for displaying totalSpending and keep a track of the items that are added to the card. 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### How data is passed down through components
+App component has a list of the lipsticks with the following properties: price, popularity, name, img. The state is kept in the FilteredList component. The main component is the parent of the FilteredList component. So the list data is passed down to its children which is FilteredList copmonent. Since state is kept in the filteredComponent the data passes to the state. And DisplayList is FiltereList component's children so the data passes from FilteredList to DisplayList and the HeaderBar component. Since DisplayList component has all the information necessary, displayList class passes down the information to checkout button and cardComponent.
 
-## Learn More
+### User Interactions 
+Whenever user clicks a button the state which is kept in the FilteredList component changes. Whenever we the user click to filter or sort the items, the state changes and FilteredList component transfers this information to its children. 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
