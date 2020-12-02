@@ -230,10 +230,7 @@ class CheckoutButton extends React.Component {
 
     displayText(totalSpending) {
         if (totalSpending > 0) {
-            return (
-                'Thank you for buying cars from our site! Your total is: $' +
-                totalSpending.toString()
-            );
+            return 'Thanks for shopping with us!';
         }
         return 'Your card is empty!';
     }
